@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expenses</title>
+</head>
+<body>
+
+<h2>Expense Tracker</h2>
+
+<form method="POST">
+    Amount: <input type="number" name="amount" required><br><br>
+
+    Category:
+    <select name="category">
+        <option>Food</option>
+        <option>Travel</option>
+        <option>Shopping</option>
+        <option>Other</option>
+    </select><br><br>
+
+    Note: <input type="text" name="note"><br><br>
+
+    <button>Add Expense</button>
+</form>
+
+<hr>
+
+<h3>Total Spend: ₹ {{ total }}</h3>
+
+<ul>
+{% for e in expenses %}
+    <li>{{ e.category }} - ₹{{ e.amount }} ({{ e.note }})</li>
+{% endfor %}
+</ul>
+
+<a href="/home">⬅ Back to Dashboard</a>
+
+</body>
+</html>
+

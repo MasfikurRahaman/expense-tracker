@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard | Expense Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 40px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        .card {
+            background: white;
+            width: 260px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        .card h3 {
+            margin-bottom: 15px;
+        }
+        .card p {
+            color: #555;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .logout {
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome, {{ user }} 👋</h1>
+
+<div class="cards">
+    <div class="card">
+        <h3>💰 Expense Tracker</h3>
+        <p>Add and monitor your daily expenses</p>
+        <a href="/expense">
+            <button>Open</button>
+        </a>
+    </div>
+</div>
+
+<div class="logout">
+    <a href="/logout">Logout</a>
+</div>
+
+</body>
+</html>
+
