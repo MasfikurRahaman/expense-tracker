@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+
+  backend-user:
+    image: masum140/expence:backend-user-v1
+    container_name: backend-user
+    ports:
+      - "5001:5000"
+    environment:
+      - SERVICE_NAME=backend-user
+    restart: unless-stopped
+
+  backend-expense:
+    image: masum140/expence:backend-expense-v1
+    container_name: backend-expense
+    ports:
+      - "5002:5000"
+    environment:
+      - SERVICE_NAME=backend-expense
+    restart: unless-stopped
+
+  backend-report:
+    image: masum140/expence:backend-report-v1
+    container_name: backend-report
+    ports:
+      - "5003:5000"
+    environment:
+      - SERVICE_NAME=backend-report
+    restart: unless-stopped
+
+  frontend:
+    image: masum140/expence:frontend-v1
+    container_name: frontend
+    ports:
+      - "3000:5000"
+    environment:
+      - USER_SERVICE_URL=http://backend-user:5000
+      - EXPENSE_SERVICE_URL=http://backend-expense:5000
+      - REPORT_SERVICE_URL=http://backend-report:5000
+    depends_on:
+      - backend-user
+      - backend-expense
+      - backend-report
+    restart: unless-stopped
+
